@@ -1,0 +1,43 @@
+{
+  "allowRemoteResourceManagement": true,
+  "policyEnforcementMode": "ENFORCING",
+  "resources": [
+    {
+      "name": "Default Resource",
+      "type": "urn:web_app:resources:default",
+      "ownerManagedAccess": false,
+      "attributes": {},
+      "_id": "c89a8efc-17d1-4308-b1c8-bb7091c89bc6",
+      "uris": [
+        "/*"
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "id": "77a0e229-fcea-428b-b068-21bd2bd6b9a5",
+      "name": "Default Policy",
+      "description": "A policy that grants access only for users within this realm",
+      "type": "js",
+      "logic": "POSITIVE",
+      "decisionStrategy": "AFFIRMATIVE",
+      "config": {
+        "code": "// by default, grants any permission associated with this policy\n$evaluation.grant();\n"
+      }
+    },
+    {
+      "id": "8c62ca12-b9fe-4a74-b528-47fd3f38cdb2",
+      "name": "Default Permission",
+      "description": "A permission that applies to the default resource type",
+      "type": "resource",
+      "logic": "POSITIVE",
+      "decisionStrategy": "UNANIMOUS",
+      "config": {
+        "defaultResourceType": "urn:web_app:resources:default",
+        "applyPolicies": "[\"Default Policy\"]"
+      }
+    }
+  ],
+  "scopes": [],
+  "decisionStrategy": "UNANIMOUS"
+}
