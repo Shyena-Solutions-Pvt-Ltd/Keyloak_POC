@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "a851babd-c13a-49fe-aca2-705fe0725324",
+		"name": "Keyclock",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29232518"
+	},
+	"item": [
+		{
+			"name": "get access token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "web_app",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "cPlYucFs8b3wxfWggmfQkg6yUsxLBi4P",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8088/auth/realms/drdo_realm/protocol/openid-connect/token"
+			},
+			"response": []
+		},
+		{
+			"name": "Get users of realm",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJrYWo2LVQ1aWw0Z2FmOXV3NGxjVDZVYk5leUlUcGtzanhtejE4M1JnbnNFIn0.eyJqdGkiOiIyOWIxN2YwMS1kMTg5LTRlMDctYjAzOC1iOGVmNWM3NGRkMDgiLCJleHAiOjE2OTQ0OTQ1MjUsIm5iZiI6MCwiaWF0IjoxNjk0NDk0NDY1LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODgvYXV0aC9yZWFsbXMvbWFzdGVyIiwiYXVkIjoiYWRtaW4tY2xpIiwic3ViIjoiNjc5NDZhOWQtZTcyNC00OTE4LWE5MDEtODhlNDM1MmViMWJkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiYWRtaW4tY2xpIiwiYXV0aF90aW1lIjowLCJzZXNzaW9uX3N0YXRlIjoiMjNjMTZmNmEtOWEyYi00YzQ1LThkYjgtYTZlOTlhZjNiYzNmIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6W10sInJlc291cmNlX2FjY2VzcyI6e30sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiY2xpZW50SWQiOiJhZG1pbi1jbGkiLCJjbGllbnRIb3N0IjoiMTcyLjE5LjAuMSIsInByZWZlcnJlZF91c2VybmFtZSI6InNlcnZpY2UtYWNjb3VudC1hZG1pbi1jbGkiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE5LjAuMSIsImVtYWlsIjoic2VydmljZS1hY2NvdW50LWFkbWluLWNsaUBwbGFjZWhvbGRlci5vcmcifQ.aE41IRUdin9xne-1jl-bPGBfHoZY-WBc_XIvAiodSPwvNI2BC6gil0Rqrmh9NVqLkL3D1_nWNjrbIaqF-m8FOb6NdNWQe746WbIEdr_28d0HWbh21E-6NpQybOQtVHy6N6f44w8FIuiEMMUtgd4JDXV_ff4E0Kp2mk0J_ayHIsoY5451-EwlN2qBFL30TFFvvFPwTJ9lqq__fzXkK2Dg_W4Y7GTdrvqGkATB47rICqBN88nDcLV-qMsQC2qpalIqthM4yt-0nCBO1t8RfauahLl1twmBVL_vrKpXbauDsLLuWPMjxCUmDR9NrkR2rnyevPtTl7MwXS1bXjwWj1akFQ"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8088/auth/admin/realms/choice_realm/users"
+			},
+			"response": []
+		},
+		{
+			"name": "get access token for our realm",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "admin-cli",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "36302c97-f679-4208-ac9c-79c6a2ba0e64",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8088/auth/realms/master/protocol/openid-connect/token"
+			},
+			"response": []
+		},
+		{
+			"name": "generate JWT token for the user ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJwWXBrSFRHYnVmTndYRnpPZGQwMTRiSnU0ZFhzUk5qbUhmOXZHcUJDcXRrIn0.eyJqdGkiOiI3NWNhY2IxYy04NjVlLTRmMjYtODU5MC1lZjY4NmM0YzcxY2YiLCJleHAiOjE2OTQ0OTc1OTgsIm5iZiI6MCwiaWF0IjoxNjk0NDk3Mjk4LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODgvYXV0aC9yZWFsbXMvY2hvaWNlX3JlYWxtIiwiYXVkIjoid2ViX2NsaWVudCIsInN1YiI6IjIwNDExMDZlLTQ5YjYtNDllMC1iZDdkLTliYmI0YWZhZTRmNiIsInR5cCI6IkJlYXJlciIsImF6cCI6IndlYl9jbGllbnQiLCJhdXRoX3RpbWUiOjAsInNlc3Npb25fc3RhdGUiOiJmY2ZiNWM5Ny1hYzMzLTQzZmItOWVmZi1lZGMxNmEzMzZjYmIiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6ImNoYXJhbiIsImVtYWlsIjoic3JpY2hhcmFuQHNoeWVuYS5pbiJ9.IR_hdpke96Ek0BAY1qNxChNONgT6L18uS3vyumqZ-qtxJw72icCAfrhs1PQejTTSK-G7MC8SYiTsiOsSNuimz3CXd1tIceLQphieXETEOBfDbE7edYhaITTzoRCfRB2-Rw3flys6tW_eaLYVYyMrz3fEzwArI88-gmHvudb550smJgtQiMPZZ8AXiNTfwMKfAWHTzEnMKOJn6umbi_Dx_Z6D67k2LaXlPq0CysdflZrMT9ujbk_f0RjCr5wasnnSJpPCydK2NRN0wOr4rn7mPYoSptbzNr2FN-fXz-k_dqqK1udl1z46HyR4fbVRuNc8F7nNGXnzamu35exG5jfZQQ"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "web_app",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "sricharan@shyena.in",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "cPlYucFs8b3wxfWggmfQkg6yUsxLBi4P",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": "http://localhost:8088/auth/realms/drdo_realm/protocol/openid-connect/token"
+			},
+			"response": []
+		},
+		{
+			"name": "generate user INFO from JWT",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJwWXBrSFRHYnVmTndYRnpPZGQwMTRiSnU0ZFhzUk5qbUhmOXZHcUJDcXRrIn0.eyJleHAiOjE2OTQ2MDQzMzAsImlhdCI6MTY5NDYwNDAzMCwianRpIjoiOWM4ZDA0NTctMGVmMS00YjY1LWFmOGQtZWIzYmYwM2YyYmMzIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDg4L2F1dGgvcmVhbG1zL2RyZG9fcmVhbG0iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMjA0MTEwNmUtNDliNi00OWUwLWJkN2QtOWJiYjRhZmFlNGY2IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViX2FwcCIsInNlc3Npb25fc3RhdGUiOiI3ZWNmNmNjMi00YzI1LTQ4ODgtYmQwYi1iOWZkMjg5NmQ2MTIiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsicmVndWxhcl91c2VyIiwic3VwZXJfYWRtaW4iLCJvZmZsaW5lX2FjY2VzcyIsImFkbWluIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiI3ZWNmNmNjMi00YzI1LTQ4ODgtYmQwYi1iOWZkMjg5NmQ2MTIiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6ImNoYXJhbiIsImVtYWlsIjoic3JpY2hhcmFuQHNoeWVuYS5pbiJ9.khHFEbLRijFprCcbQF5cQOglCgPJXSZ1l95zfnvrgYeGkkr2sX5KE5cnZlHqa_7F0QUHfgeUeuFSTpVdlT4IUs8Lf6GJaCKUrWqEjJzu5ox50kh188IGg0rr3OhP5Q65rm0Xfg8J_YOpKVx5G5472QsRPU4jzeoIrORgZW4sc3gKyE4kxW05wIaUWCsHYnB0SQcXdCONpV6LJQN4Car397T0LyLWuYduxTtiOrFaie1m46D8oIs30DqHGXp9t0Dy0m0bblhJrotqA5Nhr6RQAyHDhXO3yKb4atUyApQTvXHE7FTtc28nfsiU8TcounVP1OP-amcs9pp4cQZZRr2D7g"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "web_client",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "sricharan@shyena.in",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8088/auth/realms/drdo_realm/protocol/openid-connect/userinfo"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8000/auth/secured_hello",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJwWXBrSFRHYnVmTndYRnpPZGQwMTRiSnU0ZFhzUk5qbUhmOXZHcUJDcXRrIn0.eyJleHAiOjE2OTQ3NTM2MzcsImlhdCI6MTY5NDc1MzMzNywianRpIjoiMjExMjQxYWMtNDA5Zi00NTI1LThlMTMtZTFmMTk4ZjVhNjc0IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDg4L2F1dGgvcmVhbG1zL2RyZG9fcmVhbG0iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMjA0MTEwNmUtNDliNi00OWUwLWJkN2QtOWJiYjRhZmFlNGY2IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViX2FwcCIsInNlc3Npb25fc3RhdGUiOiIwYTZmMjcyOC1mNGE4LTQxZjktOTA2MS0wOTAyNmY1MTY3MGUiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsicmVndWxhcl91c2VyIiwic3VwZXJfYWRtaW4iLCJvZmZsaW5lX2FjY2VzcyIsImFkbWluIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiIwYTZmMjcyOC1mNGE4LTQxZjktOTA2MS0wOTAyNmY1MTY3MGUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6ImNoYXJhbiIsImVtYWlsIjoic3JpY2hhcmFuQHNoeWVuYS5pbiJ9.EyQ6J7-93qnI9ywbtiXJ58m_0FDV_n2HlaqPokeEntUwaZmW1-NLpOkTQzE85xKVvpElmjnjodsOUrSvWCe0FfyqcYZEpNqEIJZCAZvcWeCcD29OI-lv7SfIng8cD95viinW7WwncW6gWlievpP7GHbs1JfUTIwGueScq3TECyN2WFVOSIxgZ2dlgS1PvsfF6Ggf1XGZWfWwfzAQN-n-g2F6nJLuKONLsHyAFpXDsX3pln6K25R8cYgfN-m-ZjQDLI5Pa06vo3hODVGb-Hnkz-t5mAlptZSLFSzlZUupWxZZ4DAwKFvXDanKLzcdkJ9UiZOXpqb5P4wL5PdmBQ2Eeg"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJwWXBrSFRHYnVmTndYRnpPZGQwMTRiSnU0ZFhzUk5qbUhmOXZHcUJDcXRrIn0.eyJleHAiOjE2OTQ2MDY4ODQsImlhdCI6MTY5NDYwNjU4NCwianRpIjoiZTE0YmI3ZjQtZmU2MS00MWJmLTkyYzctMTdmODI5MDBjOGE2IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDg4L2F1dGgvcmVhbG1zL2RyZG9fcmVhbG0iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMjA0MTEwNmUtNDliNi00OWUwLWJkN2QtOWJiYjRhZmFlNGY2IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoid2ViX2FwcCIsInNlc3Npb25fc3RhdGUiOiJhMjM3ODY4Ny05MWJkLTQzOGItOWM4NC03ZDRhMGUzY2ZkMjkiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsicmVndWxhcl91c2VyIiwic3VwZXJfYWRtaW4iLCJvZmZsaW5lX2FjY2VzcyIsImFkbWluIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiJhMjM3ODY4Ny05MWJkLTQzOGItOWM4NC03ZDRhMGUzY2ZkMjkiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6ImNoYXJhbiIsImVtYWlsIjoic3JpY2hhcmFuQHNoeWVuYS5pbiJ9.ju4ZorZ4MwHQ3JXUP3-c0uOWnFQaHyEnB-FUnN475uPnnlV8fLFPSYLjH4U-EsjwtOh2yKtbQXQDrtvEyP5hB9gZVrgWBw4mlcwuuBhgGZjF7JAlIfzcvKMSrOpYXGhgphGB_MFUc626HQDeHvRD3DFgS_haebbpSFZgNywXudglX-5J_3F4Gk_CUdT_2Nx1IOXr6eB46IW0FkLdJ8udSFDK7aAJ8GOO2RksEC00_YQeThVaYLxjSSj-J_sOG9HrnVjDBrEyqpsBB1qvtuoX_wCIzuXRpqO5ozOuF-3KO6v2fZy7J27VzGz_p89hVqJ09Avx1jwhcUOvfDJfHzJshw",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": "localhost:8000/auth/secured_hello"
+			},
+			"response": []
+		}
+	]
+}
