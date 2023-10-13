@@ -41,27 +41,33 @@ class AuthMiddleware(MiddlewareMixin):
         self.get_response = get_response
 
     def process_view(self, request, view_func, *view_args, **view_kwargs):
+        path = request.path.split('/')[-2]
+
+        if(path in self.config['EXCLUDE_PATH']):
+            return None
         
         # Retrieve the 'Authorization' header from the request
         auth_header = request.META.get('HTTP_AUTHORIZATION')
-        token = auth_header.split()[1]
-        user_response = {
-            "username":None,
-            "email":None,
-            "roles":[]
-        }
+        if(auth_header):
+            token = auth_header.split()[1]
+            user_response = {
+                "username":None,
+                "email":None,
+                "roles":[]
+            }
 
-        try:
-            options = {"verify_signature": True, "verify_aud": False, "verify_exp": True}
-            token_info = self.keycloak.decode_token(token, key=self.client_public_key, options=options)
-            logger.info(token_info)
-            user_response["username"] = token_info["preferred_username"]
-            user_response["email"] = token_info["email"]
-            user_response["roles"] = token_info["realm_access"]["roles"]
-        except Exception as e:
-            logger.error("Parsing token failed : ",e)
-            return JsonResponse({"detail": "Invalid token"},status=status.HTTP_401_UNAUTHORIZED)
-        
-        
-        request.user = user_response
-        return None
+            try:
+                options = {"verify_signature": True, "verify_aud": False, "verify_exp": True}
+                token_info = self.keycloak.decode_token(token, key=self.client_public_key, options=options)
+                logger.debug("token_info ",token_info)
+                user_response["username"] = token_info["preferred_username"]
+                user_response["email"] = token_info["email"]
+                user_response["roles"] = token_info["realm_access"]["roles"]
+            except Exception as e:
+                logger.error("Parsing token failed : ",e)
+                return JsonResponse({"detail": "Invalid token"},status=status.HTTP_401_UNAUTHORIZED)
+    
+            request.user = user_response
+            return None
+        else:
+            return JsonResponse({"detail": "Token not found"},status=status.HTTP_400_BAD_REQUEST)

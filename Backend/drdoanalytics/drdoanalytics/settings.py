@@ -15,6 +15,8 @@ SECRET_KEY = 'django-insecure-75l8p*1#$dw1vny75)o!%u!)v*h30be#z=e9i4r7l*axdsyyd!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# APPEND_SLASH=True
+
 ALLOWED_HOSTS = []
 
 LOGGING = {
@@ -30,7 +32,7 @@ LOGGING = {
         'level': 'DEBUG',  # Set the desired logging level
     },
     'loggers': {
-        'yourapp': {  # Replace 'yourapp' with your app/module name
+        'authorization': {  # Replace 'yourapp' with your app/module name
             'handlers': ['console'],
             'level': 'DEBUG',  # Set the desired logging level
         },
@@ -53,7 +55,6 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -62,8 +63,9 @@ MIDDLEWARE = [
 KEYCLOAK_CONFIG = {
     'KEYCLOAK_REALM': 'drdo_realm',
     'KEYCLOAK_CLIENT_ID': 'django_app',
-    'KEYCLOAK_SERVER_URL': 'http://localhost:8088/auth/',
-    'KEYCLOAK_CLIENT_SECRET_KEY': '7O8MYens7KsYSGhGBd9lWwhCEuMXSKKC'
+    'KEYCLOAK_SERVER_URL': 'http://192.168.1.20:8088/auth/',
+    'KEYCLOAK_CLIENT_SECRET_KEY': 'cvwdk9Od2YPE62kE2GpnTChUJnGMJisW',
+    'EXCLUDE_PATH': ['unsecured_hello','login','refresh-token']
 }
 
 REST_FRAMEWORK = {
