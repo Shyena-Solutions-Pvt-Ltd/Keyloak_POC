@@ -103,6 +103,7 @@ def create_user(request):
         firstname = body["firstname"]
         lastname = body["lastname"]
     except Exception as e:
+        print(e)
         return JsonResponse({"detail": "Provide required Information."},status=status.HTTP_400_BAD_REQUEST)
 
     try:
