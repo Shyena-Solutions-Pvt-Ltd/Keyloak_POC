@@ -65,7 +65,9 @@ KEYCLOAK_CONFIG = {
     'KEYCLOAK_CLIENT_ID': 'django_app',
     'KEYCLOAK_SERVER_URL': 'http://192.168.1.20:8088/auth/',
     'KEYCLOAK_CLIENT_SECRET_KEY': 'cvwdk9Od2YPE62kE2GpnTChUJnGMJisW',
-    'EXCLUDE_PATH': ['unsecured_hello','login','refresh-token']
+    'EXCLUDE_PATH': ['unsecured_hello','login','refresh-token'],
+    'KEYCLOAK_TEST_ADMIN_USER' : 'charan',
+    'KEYCLOAK_TEST_ADMIN_PASSWORD' : 'sri1234'
 }
 
 REST_FRAMEWORK = {
